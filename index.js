@@ -16,7 +16,7 @@ app.set("view engine", "ejs")
 app.get('/', function(req, res) {
 	req.flash('success', 'This is a flash message using the express-flash module.')
   res.render('index', {expressFlash: req.flash('success') });
-})z
+})
 
 
 app.get('/l', function(req, res) {
