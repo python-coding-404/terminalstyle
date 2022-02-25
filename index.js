@@ -11,14 +11,18 @@ app.use(expresssession({ cookie: { maxAge: 9999999999 }, secret: "8bbfc54a5d6b34
 	saveUninitialized: true}));
 app.use(flash());
 app.set("view engine", "ejs")
-app.all('/express-flash',function(req,res){
-  req.flash('success', 'This is a flash message using the express-flash module.');
-  res.redirect(301, '/');
-})
 
-app.get('/', req, res ) {
+
+app.get('/', function(req, res) {
+	req.flash('success', 'This is a flash message using the express-flash module.')
   res.render('index', {expressFlash: req.flash('success') });
-}
+})z
+
+
+app.get('/l', function(req, res) {
+	req.flash('success', 'This is a flash message using lthe express-flash module.');
+  res.render('index', {expressFlash: req.flash('success') });
+})
 
 app.listen(3000, () => {
   console.log('server started');
